@@ -1,0 +1,20 @@
+<h1>Liste de films</h1>
+<br/>
+Recherche <input type="text" ng-model="searchText">
+<hr>
+
+<div class="row">
+    <div class="col-md-8">
+        <ul class="container center-block">
+            <li style="height:40px" ng-repeat="film in films | filter:searchText">
+                <span class="col-md-4">{{ film.name }}</span>
+                <a class="btn btn-primary btn-xs" ng-href="#/details/{{film.name}}">Détails</a>
+                <a class="btn btn-warning btn-xs" ng-href="#/edit/{{ film.name}}">Editer</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+<a class="btn btn-success" ng-href="#/create">Ajouter un film</a>
+

@@ -1,0 +1,61 @@
+<h1>edit view</h1>
+
+<div class="container col-md-10 center-block">
+  <form name="myForm" ng-submit="save(film)">
+
+    <div class="row">
+      <label class="center-block">
+        <span class="col-md-4">name</span>
+        <input class="col-md-6" name="inputName" type="text" ng-model="film.name" required ng-minlength="5"></span>
+      </label>
+      <br/>
+
+      <label class="center-block">
+        <span class="col-md-4">affiche</span>
+          <span class="col-md-6">
+          <input name="inputAffiche"  type="text" ng-model="film.affiche.url">
+          <input type="file" class="fileInput">
+        </span>
+      </label>
+      <br/>
+      <label class="center-block">
+        <span class="col-md-4">realisateur</span>
+        <input name="inputRealisator" class="col-md-6" type="text" ng-model="film.realisator" required>
+      </label>
+      <br/>
+      <!--<input type="text" ng-model="film.actors">-->
+      <label class="center-block">
+        <span class="col-md-4">date de sortie</span>
+        <span class="col-md-6">
+          <input name="inputDate" type="text" ng-model="film.releaseDate" required >
+        </span>
+      </label>
+      <br/>
+      <label class="center-block">
+        <span class="col-md-4">Acteurs</span>
+        <div class="col-md-6">
+          <p ng-repeat="actor in film.actors">
+            <span>{{actor.name}}
+              <button class="btn btn-xs btn-warning" ng-click="deleteActor(actor)">-</button>
+            </span>
+          </p>
+          Nom<input type="text" ng-model="newActor.name">
+          <button class="btn btn-xs btn-success" ng-click="addActor(newActor)">+</button>
+        </div>
+      </label>
+      <br/>
+      <label class="center-block">
+        <span class="col-md-4">note</span>
+        <select name="inputRating" class="col-md-6"  ng-model="film.rating" required ng-options="rating.value as rating.label for rating in ratingPossible"></select>
+      </label>
+    </div>
+    <br/>
+    <br/>
+    <input ng-disabled="myForm.$invalid" class="btn btn-success left" type="submit" value="Sauvergarder les changements">
+
+
+  </form>
+  <hr>
+  <a class="btn btn-primary" ng-href="/#/">Retour à la liste</a>
+
+</div>

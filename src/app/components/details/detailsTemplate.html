@@ -1,0 +1,24 @@
+<h1>Details du film</h1>
+
+<h2>{{film.name}}</h2>
+
+
+<ul>
+    <li class="list-group-item">
+      <img ng-if="film.affiche.url && !film.affiche.image"
+           class="img-responsive"
+           ng-src="{{film.affiche.url}}"
+           alt="affiche non reconnue">
+      <img ng-if="film.affiche.image" class="img-responsive"
+           ng-src="{{film.affiche.image}}"
+           alt="affiche non reconnue">
+      <p ng-if="!film.affiche.url && !film.affiche.image">Pas d'image affichable</p>
+    </li>
+    <li class="list-group-item">Sorti en {{film.releaseDate | date:'dd/MM/yyyy'}}</li>
+    <li class="list-group-item">Réalisé par {{film.realisator}}</li>
+    <li class="list-group-item">Avec <span ng-repeat="actor in film.actors">{{actor.name}} </span></li>
+    <li class="list-group-item">Score : {{film.rating | ratingDisplay}}</li>
+</ul>
+<button class="btn btn-warning" ng-click="delete(film.name)">Effacer</button>
+<hr>
+<a ng-href="/#/" class="btn btn-primary">Retour à la liste</a>
