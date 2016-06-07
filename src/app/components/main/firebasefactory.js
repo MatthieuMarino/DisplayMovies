@@ -76,15 +76,17 @@ angular.module('filmDisplayApp')
 
 
     var getFilmByName = function (id) {
-      return films.filter(function(film){
-        return film.name.includes(id);
-      })[0];
+      for(var i = 0; i < films.length; i++){
+        if(films[i].name.includes(id)){
+          return films[i];
+        }
+      }
+      return -1;
+      // return films.filter(function(film){
+      //   return film.name.includes(id);
+      // })[0];
     };
-
-
-    // var getFilm = function (id) {
-    //   return getFilmByName(id);
-    // };
+    
 
     var createFilm = function (film) {
       // console.log('film', film);
