@@ -8,10 +8,10 @@
  * Controller of the filmDisplayApp
  */
 angular.module('filmDisplayApp')
-  .controller('MainCtrl', function ($scope, firebaseFactory) {
+  .controller('MainCtrl', function ($scope, FirebaseFactory) {
 
-    firebaseFactory.hasLoaded().then(function(){
-      $scope.films = firebaseFactory.list();
+    FirebaseFactory.hasLoaded().then(function(){
+      $scope.films = FirebaseFactory.list();
       // console.log('$scope.films', $scope.films);
     },function(){
       alert('Database unable to load');

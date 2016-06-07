@@ -7,15 +7,13 @@
  * # checkAuth
  */
 angular.module('filmDisplayApp')
-  .directive('checkAuth', function (firebaseFactory, $location) {
+  .directive('checkAuth', function (AuthFactory) {
     return {
       template: '',
-      restrict: 'E',
+      restrict: 'A',
       controller: function () {
-        
-        if(!firebaseFactory.isAuth()){
-          $location.path('/#/login');
-        }
+
+        AuthFactory.checkAuth();
       }
     };
   });

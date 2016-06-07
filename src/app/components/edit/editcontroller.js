@@ -8,22 +8,22 @@
  * Controller of the filmDisplayApp
  */
 angular.module('filmDisplayApp')
-  .controller('EditcontrollerCtrl', function ($scope, $routeParams, firebaseFactory) {
+  .controller('EditcontrollerCtrl', function ($scope, $routeParams, FirebaseFactory) {
 
     var id = $routeParams.id;
 
-    firebaseFactory.hasLoaded().then(function(){
-      $scope.film = firebaseFactory.get(id);
+    FirebaseFactory.hasLoaded().then(function(){
+      $scope.film = FirebaseFactory.get(id);
     });
 
     $scope.save = function (film) {
-      firebaseFactory.save(film);
+      FirebaseFactory.save(film);
       alert('Changements sauvegardés');
     };
 
     $scope.upload = function(afficheFile){
       // console.log('afficheFile', afficheFile);
-      firebaseFactory.uploadAffiche(id, afficheFile);
+      FirebaseFactory.uploadAffiche(id, afficheFile);
     };
 
     // $scope.$watch('fileInput', function(newValue, oldValue){

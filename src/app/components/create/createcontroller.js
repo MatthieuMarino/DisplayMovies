@@ -8,12 +8,12 @@
  * Controller of the filmDisplayApp
  */
 angular.module('filmDisplayApp')
-  .controller('CreatecontrollerCtrl', function ($scope, $location, $q, firebaseFactory) {
+  .controller('CreatecontrollerCtrl', function ($scope, $location, $q, FirebaseFactory) {
 
     $scope.create = function (film) {
       // console.log('creating film', film);
-      firebaseFactory.create(film);//.then(function(){
-        $location.path('/#/');
+      FirebaseFactory.create(film);//.then(function(){
+        $location.path('#/');
       // });
     };
 

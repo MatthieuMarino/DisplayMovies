@@ -24,7 +24,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ng-view></div>
+    <div ng-view check-auth></div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
@@ -37,7 +37,7 @@
     <!-- inject:js -->
     <script src="app/index.module.js"></script>
     <script src="app/index.route.js"></script>
-    <script src="app/components/main/firebasefactory.js"></script>
+    <script src="app/components/firebase/FirebaseFactory.js"></script>
     <script src="app/components/main/displaylist.js"></script>
     <script src="app/components/main/main.js"></script>
     <script src="app/components/main/server_url.js"></script>
@@ -52,6 +52,8 @@
     <script src="app/components/edit/editfilm.js"></script>
     <script src="app/components/login/login.js"></script>
     <script src="app/components/login/checkauth.js"></script>
+    <script src="app/components/header/topmenu.js"></script>
+    <script src="app/components/auth/authFactory.js"></script>
     <!-- js files will be automatically insert here -->
     <!-- endinject -->
 

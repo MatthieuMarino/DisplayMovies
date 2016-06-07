@@ -8,12 +8,14 @@
  * Controller of the filmDisplayApp
  */
 angular.module('filmDisplayApp')
-  .controller('LoginCtrl', function ($scope, $cookies, firebaseFactory) {
+  .controller('LoginCtrl', function ($scope, $cookies, AuthFactory) {
     $scope.user = {};
     if($cookies.auth){
     $scope.user.email = $cookies.auth.email;
     $scope.user.password = $cookies.auth.password;
     }
 
-    $scope.loginUser = firebaseFactory.login;
+    $scope.loginUser = AuthFactory.login;
+
+
   });

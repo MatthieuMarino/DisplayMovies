@@ -8,18 +8,18 @@
  * Controller of the filmDisplayApp
  */
 angular.module('filmDisplayApp')
-  .controller('DetailscontrollerCtrl', function ($scope, $routeParams, $location, firebaseFactory) {
+  .controller('DetailscontrollerCtrl', function ($scope, $routeParams, $location, FirebaseFactory) {
     var id = $routeParams.id;
 
-    firebaseFactory.hasLoaded().then(function(){
-      $scope.film = firebaseFactory.get(id);
+    FirebaseFactory.hasLoaded().then(function(){
+      $scope.film = FirebaseFactory.get(id);
       // console.log('$scope.films', $scope.films);
     });
 
 
     $scope.delete = function(film){
-      firebaseFactory.delete(film);
-      $location.path('/#/');
+      FirebaseFactory.delete(film);
+      $location.path('#/');
 
     }
   });

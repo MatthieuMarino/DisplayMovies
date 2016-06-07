@@ -2,22 +2,16 @@
 
 /**
  * @ngdoc service
- * @name filmDisplayApp.firebaseFactory
+ * @name filmDisplayApp.FirebaseFactory
  * @description
- * # firebaseFactory
+ * # FirebaseFactory
  * Factory in the filmDisplayApp.
  */
 angular.module('filmDisplayApp')
-  .factory('firebaseFactory', function ($firebaseArray, $q,  $cookies, $location, SERVERURL) {
+  .factory('FirebaseFactory', function ($firebaseArray, $q, $location, SERVERURL) {
 
 
-    var isAuthentified = false;
-    var configUser = {
-      id:{
-        email:'test@rien.com',
-        password: '123456'
-      }
-    };
+
     var films = [];
     var dbLoaded = $q.defer();
 
@@ -30,48 +24,7 @@ angular.module('filmDisplayApp')
 
     var ref = new Firebase(SERVERURL);
 
-    var token = $cookies.get('firebase');
-    console.log('token', token);
-    // console.log('ref.getAuth()', ref.getAuth());
-    var testAuth = ref.getAuth();
-    if(testAuth){
-      console.log('Already logged');
-      isAuthentified = true;
-      $cookies.put('firebase', testAuth);
-      accessDb();
-    }else if(token.token){
-      ref.authWithCustomToken(token.token,function(error, authData){
-        if (error) {
-          console.warn("Login Failed!", error);
-          dbLoaded.reject(false);
-          $location.path('/#/login');
-        } else {
-          console.log("Authenticated successfully with payload:", authData);
-          isAuthentified = true;
-          $cookies.put('firebase', authData);
-          accessDb();
-        }
-      });
 
-    }
-    else
-    {
-      $location.path('/#/login');
-    }
-    var login = function(user){
-
-      ref.authWithPassword(user, function(error, authData){
-        if (error) {
-          console.warn("Login Failed!", error);
-          dbLoaded.reject(false);
-        } else {
-          console.log("Authenticated successfully with payload:", authData);
-          isAuthentified = true;
-          $cookies.put('firebase', authData);
-          accessDb();
-        }
-      });
-    };
 
 
 
@@ -86,7 +39,7 @@ angular.module('filmDisplayApp')
       //   return film.name.includes(id);
       // })[0];
     };
-    
+
 
     var createFilm = function (film) {
       // console.log('film', film);
@@ -135,8 +88,7 @@ angular.module('filmDisplayApp')
       create: createFilm,
       delete: deleteFilm,
       hasLoaded: function(){ return dbLoaded.promise;},
-      isAuth: function () { return isAuthentified;},
-      login: login,
-      uploadAffiche: uploadAffiche
+      uploadAffiche: uploadAffiche,
+      connectDb: accessDb
     };
   });
