@@ -29,10 +29,10 @@ angular.module('filmDisplayApp')
 
         $scope.deleteActor = function(actor, size){
 
-            console.log('actor', actor);
+            // console.log('actor', actor);
             var index = $scope.film.actors.indexOf(actor);
-            console.log('$scope.film.actors', $scope.film.actors);
-            console.log('index', index);
+            // console.log('$scope.film.actors', $scope.film.actors);
+            // console.log('index', index);
             if(index != -1){
               $scope.film.actors.splice(index, 1);
             }else{

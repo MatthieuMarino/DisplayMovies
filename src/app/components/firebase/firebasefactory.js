@@ -70,10 +70,10 @@ angular.module('filmDisplayApp')
       var film = getFilmByName(id);
         fr.onload = function (res) {
           film.affiche.image = res.target.result;
-          console.log('film.affiche.image', film.affiche.image);
+          // console.log('film.affiche.image', film.affiche.image);
           films.$save(film).then(function (val) {
           }, function (error) {
-            console.log("ERROR", error);
+            console.error("ERROR", error);
           })
         };
         fr.readAsDataURL(filename);
