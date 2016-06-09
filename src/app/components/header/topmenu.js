@@ -3,6 +3,7 @@ angular.module('filmDisplayApp')
     return {
       templateUrl: 'app/components/header/topmenu.html',
       restrict: 'E',
+      transclude: true,
       controller: function ($scope) {
 
         $scope.$watch(function(){
