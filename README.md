@@ -6,3 +6,7 @@ Use 'npm i' and 'bower i' in the folder after download
 
 Use 'gulp serve' to launch the app
 Use 'gulp dist' to build solution
+
+
+test user is : testuser@test.test 
+password : test

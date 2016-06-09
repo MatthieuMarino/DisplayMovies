@@ -1,4 +1,4 @@
-<p >
-<p ng-if="user" class="table-bordered">{{user.password.email}} <button class="btn btn-primary" ng-click="disconnect()">Se déconnecter</button></p>
+<div class="right">
+<p ng-if="user">{{user.password.email}} <button class="btn btn-primary" ng-click="disconnect()">Se déconnecter</button></p>
 <a class="btn btn-primary" href="#/login" ng-if="!user">Se connecter</a>
-</p>
+</div>
